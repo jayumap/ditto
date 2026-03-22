@@ -6,7 +6,7 @@ import Card from '../ui/Card';
 import { staggerContainer, fadeInUp } from '../../hooks/useScrollAnimation';
 
 /**
- * Features section — 6 cards showcasing Ditto's analysis capabilities.
+ * Features section - 6 cards showcasing Ditto's analysis capabilities.
  */
 export default function FeaturesSection() {
   return (

@@ -8,7 +8,7 @@ import CTASection from '../components/sections/CTASection';
 import Footer from '../components/sections/Footer';
 
 /**
- * Landing page — composes all sections in the correct order.
+ * Landing page - composes all sections in the correct order.
  * @param {{ onSearch?: (username: string) => void }} props
  */
 export default function LandingPage({ onSearch }) {

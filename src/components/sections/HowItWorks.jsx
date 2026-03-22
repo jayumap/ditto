@@ -5,7 +5,7 @@ import SectionWrapper from '../ui/SectionWrapper';
 import { staggerContainer, fadeInUp } from '../../hooks/useScrollAnimation';
 
 /**
- * "How It Works" section — 3-step horizontal timeline.
+ * "How It Works" section - 3-step horizontal timeline.
  */
 export default function HowItWorks() {
   return (

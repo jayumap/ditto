@@ -1,6 +1,6 @@
 /**
  * Static data and copy for the Ditto landing page.
- * All hardcoded strings live here — never in JSX directly.
+ * All hardcoded strings live here - never in JSX directly.
  */
 
 /** Navigation links */
@@ -16,7 +16,7 @@ export const HERO = {
   headline: 'Meet Your Coding',
   headlineAccent: 'Doppelgänger',
   subtext:
-    'Ditto analyzes your GitHub repos, coding patterns, language preferences, commit behavior, and contribution style — then matches you with a developer who codes just like you.',
+    'Ditto analyzes your GitHub repos, coding patterns, language preferences, commit behavior, and contribution style - then matches you with a developer who codes just like you.',
   inputPlaceholder: 'Enter your GitHub username',
   ctaButton: 'Find My Twin',
 };
@@ -35,7 +35,7 @@ export const STEPS = [
     icon: 'Cpu',
     title: 'Ditto Analyzes Patterns',
     description:
-      'Our AI engine fingerprints your coding DNA — languages, commit cadence, repo structure, and style.',
+      'Our AI engine fingerprints your coding DNA - languages, commit cadence, repo structure, and style.',
   },
   {
     id: 3,

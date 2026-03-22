@@ -80,21 +80,21 @@ export default function useGitHubMatch() {
     setMatchedUser(null);
 
     try {
-      // Step 1 — Fetch profile
+      // Step 1 - Fetch profile
       setLoadingStep(STEPS[0]);
       const profile = await ghFetch(`/users/${trimmed}`);
 
-      // Step 2 — Fetch repos
+      // Step 2 - Fetch repos
       setLoadingStep(STEPS[1]);
       const repos = await ghFetch(`/users/${trimmed}/repos?per_page=100&sort=pushed`);
 
-      // Step 3 — Fetch events
+      // Step 3 - Fetch events
       setLoadingStep(STEPS[2]);
       let events = [];
       try {
         events = await ghFetch(`/users/${trimmed}/events/public?per_page=100`);
       } catch {
-        // Events may be empty or 404 for some users — non-fatal
+        // Events may be empty or 404 for some users - non-fatal
       }
 
       // Build input fingerprint
@@ -120,7 +120,7 @@ export default function useGitHubMatch() {
         accountAgeDays: fingerprint.accountAgeDays,
       });
 
-      // Step 4 — Find candidates
+      // Step 4 - Find candidates
       // Keep search small to conserve the 60 req/hr unauthenticated rate limit.
       setLoadingStep(STEPS[3]);
       const topLangs = fingerprint.topLanguages.slice(0, 2);
@@ -135,7 +135,7 @@ export default function useGitHubMatch() {
         query = `repos:>${minRepos}`;
       }
 
-      // Fetch only 10 candidates — keeps total API calls ≈ 3 + 1 + 10×2 = 24
+      // Fetch only 10 candidates - keeps total API calls ≈ 3 + 1 + 10×2 = 24
       const searchResult = await ghFetch(`/search/users?q=${query}&per_page=10`);
       const candidateLogins = (searchResult.items || [])
         .map((u) => u.login)
@@ -144,7 +144,7 @@ export default function useGitHubMatch() {
 
       if (candidateLogins.length === 0) throw new Error('NO_CANDIDATES');
 
-      // Step 5 — Fetch candidate profile + repos (skip events to save calls)
+      // Step 5 - Fetch candidate profile + repos (skip events to save calls)
       setLoadingStep(STEPS[4]);
       const candidatePromises = candidateLogins.map(async (login) => {
         const [cProfile, cRepos] = await Promise.all([
@@ -162,7 +162,7 @@ export default function useGitHubMatch() {
 
       if (validCandidates.length === 0) throw new Error('NO_CANDIDATES');
 
-      // Step 6 — Score each candidate
+      // Step 6 - Score each candidate
       setLoadingStep(STEPS[5]);
       let bestScore = -1;
       let bestCandidate = null;
@@ -184,7 +184,7 @@ export default function useGitHubMatch() {
         }
       }
 
-      // Step 7 — Done!
+      // Step 7 - Done!
       setLoadingStep(STEPS[6]);
 
       const sharedLangs = fingerprint.topLanguages.filter((l) =>

@@ -82,7 +82,7 @@ function LanguageBar({ languages }) {
 }
 
 /**
- * Sample Match Card demo section — showcases match UI.
+ * Sample Match Card demo section - showcases match UI.
  */
 export default function SampleMatchCard() {
   return (
@@ -92,7 +92,7 @@ export default function SampleMatchCard() {
           See a <span className="gradient-text">Match</span> in Action
         </h2>
         <p className="mt-4 text-gray-600 dark:text-dark-300 max-w-xl mx-auto">
-          Here's what a real Ditto match looks like — two developers with remarkably similar coding DNA.
+          Here's what a real Ditto match looks like - two developers with remarkably similar coding DNA.
         </p>
       </div>
 

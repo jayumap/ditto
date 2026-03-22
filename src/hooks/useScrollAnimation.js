@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 /**
  * Custom hook that triggers a Framer Motion animation when
  * the referenced element scrolls into view.
- * @param {number} [threshold=0.15] — fraction of element visible to trigger
+ * @param {number} [threshold=0.15] - fraction of element visible to trigger
  * @returns {{ ref: React.RefObject, controls: import('framer-motion').AnimationControls, variants: object }}
  */
 export function useScrollAnimation(threshold = 0.15) {
